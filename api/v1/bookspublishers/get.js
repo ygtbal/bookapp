@@ -3,9 +3,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  database.Books.belongsToMany(database.Publishers, {through: database.BooksAuthors});
-  database.Books.belongsTo(database.Authors, {foreignKey: 'author_id'});
-  database.Books.findAll({include: [{model: database.Publishers, required: false}, {model: database.Authors, required: true}]}).then((data) => {
+  database.BooksAuthors.findAll().then((data) => {
     return res.json({
       type: true,
       data,

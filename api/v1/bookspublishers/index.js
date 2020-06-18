@@ -3,21 +3,6 @@ const app = express();
 const path = require('path');
 const basename = path.basename(__filename);
 
-
-// Route
-const bookRoute = require('./books/index');
-app.use('/books', bookRoute);
-
-const authorRoute = require('./authors/index');
-app.use('/authors', authorRoute);
-
-const booksPublishers = require('./bookspublishers/index');
-app.use('/bookPublishers', booksPublishers);
-
-
-const publishers = require('./publishers/index');
-app.use('/publishers', publishers);
-
 require('fs')
     .readdirSync(__dirname)
     .filter((file) => {
