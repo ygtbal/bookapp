@@ -32,12 +32,8 @@ if (config.environment === 'production') {
     }
   );
 } else {
-  console.log(config);
   sequelize = new Sequelize(
-     config.database, config.username, config.password, {
-       host: config.host,
-       dialect: config.dialect
-     }
+     config.database, config.username, config.password, config
   );
 }
 
